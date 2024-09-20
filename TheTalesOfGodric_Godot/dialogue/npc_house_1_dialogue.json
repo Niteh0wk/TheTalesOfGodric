@@ -1,0 +1,8 @@
+[
+	{"name" : "Worker", "text" : "Hello there Stranger!"},
+	{"name" : "You", "text" : "Hello there!"},
+	{"name" : "Worker", "text" : "What has brought you hear this fine evening."},
+	{"name" : "You", "text" : "I was looking for some goods to buy."},
+	{"name" : "Worker", "text" : "Look no further i have the best foods and drinks around town."},
+	{"name" : "You", "text" : "Well, sounds great. What can you offer?"}
+]

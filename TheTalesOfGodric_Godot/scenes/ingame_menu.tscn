@@ -1,0 +1,101 @@
+[gd_scene load_steps=18 format=3 uid="uid://3v0sis016jpl"]
+
+[ext_resource type="Script" path="res://script/ingame_menu.gd" id="1_b1iag"]
+[ext_resource type="Texture2D" uid="uid://b3bby0noqiq8x" path="res://res/UI/Settings_Menu/SettingsMenu.png" id="1_js0bi"]
+[ext_resource type="FontFile" uid="uid://cxfo73ujxg46t" path="res://Fonts/PixelOperator8-Bold.ttf" id="5_g4lcq"]
+[ext_resource type="Texture2D" uid="uid://bjiotik4so6bc" path="res://res/UI/Settings_Menu/Volume_Slider_Knob.png" id="6_t0ml7"]
+[ext_resource type="Texture2D" uid="uid://cry205x0dcajs" path="res://res/UI/quit_button/quit_hover.png" id="7_okm6h"]
+[ext_resource type="Script" path="res://script/sfx_volume_slider.gd" id="8_0mqa0"]
+[ext_resource type="Texture2D" uid="uid://3vjrij0va40p" path="res://res/UI/quit_button/quit_normal.png" id="8_hdsa6"]
+[ext_resource type="Texture2D" uid="uid://berj584srfo3p" path="res://res/UI/Settings_Menu/Volume_Slider_Bar.png" id="8_oqe33"]
+[ext_resource type="Texture2D" uid="uid://gjc3nmexxb25" path="res://res/UI/quit_button/quit_pressed.png" id="9_6dkoy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_52k73"]
+texture = ExtResource("7_okm6h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fo8hv"]
+texture = ExtResource("8_hdsa6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71odq"]
+texture = ExtResource("9_6dkoy")
+
+[sub_resource type="Theme" id="Theme_dysvv"]
+Button/styles/hover = SubResource("StyleBoxTexture_52k73")
+Button/styles/normal = SubResource("StyleBoxTexture_fo8hv")
+Button/styles/pressed = SubResource("StyleBoxTexture_71odq")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b5py"]
+bg_color = Color(0, 0, 0, 0.603922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvbuo"]
+bg_color = Color(0, 0, 0, 0.603922)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7fh6v"]
+texture = ExtResource("8_oqe33")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="Theme" id="Theme_jf8vj"]
+HSlider/icons/grabber = ExtResource("6_t0ml7")
+HSlider/icons/grabber_highlight = ExtResource("6_t0ml7")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_7b5py")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_rvbuo")
+HSlider/styles/slider = SubResource("StyleBoxTexture_7fh6v")
+
+[node name="ingame_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b1iag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(6, 6)
+texture = ExtResource("1_js0bi")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 1113.0
+offset_top = 931.0
+offset_right = 1129.0
+offset_bottom = 937.0
+scale = Vector2(15, 15)
+pivot_offset = Vector2(19.5, 8)
+focus_mode = 0
+theme = SubResource("Theme_dysvv")
+theme_override_fonts/font = ExtResource("5_g4lcq")
+theme_override_font_sizes/font_size = 128
+
+[node name="SFX" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 236.0
+offset_right = 1097.0
+offset_bottom = 280.0
+theme = SubResource("Theme_jf8vj")
+max_value = 1.0
+step = 0.001
+script = ExtResource("8_0mqa0")
+bus_name = "SFX"
+
+[node name="Music" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 326.0
+offset_right = 1097.0
+offset_bottom = 370.0
+theme = SubResource("Theme_jf8vj")
+max_value = 1.0
+step = 0.001
+script = ExtResource("8_0mqa0")
+bus_name = "Music"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

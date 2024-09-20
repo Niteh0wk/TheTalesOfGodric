@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfedwbujuxsfs"]
+
+[ext_resource type="Script" path="res://script/dialogue.gd" id="1_by3t3"]
+[ext_resource type="Texture2D" uid="uid://ca81hw6bhcv5l" path="res://res/UI/SpeechBubble_Sign/Speech_Bubble_Sign.png" id="1_h6881"]
+[ext_resource type="FontFile" uid="uid://cxfo73ujxg46t" path="res://Fonts/PixelOperator8-Bold.ttf" id="3_68l3e"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchor_right = 0.417
+anchor_bottom = 0.417
+offset_right = -0.384033
+offset_bottom = -0.216003
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_by3t3")
+
+[node name="Dialogue_Field" type="Sprite2D" parent="."]
+position = Vector2(240, 135)
+scale = Vector2(2, 2)
+texture = ExtResource("1_h6881")
+
+[node name="Name" type="RichTextLabel" parent="Dialogue_Field"]
+offset_left = -35.0
+offset_top = -6.0
+offset_right = 122.0
+offset_bottom = 5.0
+scale = Vector2(0.4, 0.4)
+theme_override_fonts/normal_font = ExtResource("3_68l3e")
+theme_override_font_sizes/normal_font_size = 8
+text = "Name:"
+
+[node name="Speech_Text" type="RichTextLabel" parent="Dialogue_Field"]
+offset_left = -32.4878
+offset_top = -2.89756
+offset_right = 180.512
+offset_bottom = 30.1024
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/normal_font = ExtResource("3_68l3e")
+theme_override_font_sizes/normal_font_size = 8

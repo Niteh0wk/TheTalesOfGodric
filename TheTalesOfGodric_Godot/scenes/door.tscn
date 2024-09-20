@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cf5jhy2wnjcxh"]
+
+[ext_resource type="Texture2D" uid="uid://dvmuy5tk8cgk3" path="res://res/Cute_Fantasy/House/Walls/Wood_Door_Anim.png" id="1_f2hd7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljwnp"]
+atlas = ExtResource("1_f2hd7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi4uq"]
+atlas = ExtResource("1_f2hd7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x88o"]
+atlas = ExtResource("1_f2hd7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aux4d"]
+atlas = ExtResource("1_f2hd7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao62y"]
+atlas = ExtResource("1_f2hd7")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yxqi"]
+atlas = ExtResource("1_f2hd7")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rbf5l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljwnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi4uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x88o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aux4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao62y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yxqi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Door" type="StaticBody2D"]
+
+[node name="DoorAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rbf5l")
