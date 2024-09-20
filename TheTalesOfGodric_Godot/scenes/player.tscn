@@ -589,6 +589,7 @@ offset_bottom = -115.0
 scale = Vector2(0.2, 0.2)
 
 [node name="Username" type="Label" parent="."]
+z_index = 100
 offset_left = -80.0
 offset_top = -21.0
 offset_right = 80.0

@@ -38,6 +38,7 @@ func _physics_process(delta):
 	if inventory and ingame_menu.visible == false:
 		inventory_sprite.visible = inventory_toggle
 		background_darkening.visible = inventory_toggle
+		username_label.visible = !inventory_toggle
 		inventory_toggle = !inventory_toggle
 		print("The inventory_toggle is:" , inventory_toggle)
 		GameState.set_player_inventory_state(!inventory_toggle)
@@ -46,6 +47,7 @@ func _physics_process(delta):
 	if escape and inventory_sprite.visible == false:
 		ingame_menu.visible = menu_toggle
 		background_darkening.visible = menu_toggle
+		username_label.visible = !menu_toggle
 		menu_toggle = !menu_toggle
 		print("The menu_toggle is:", menu_toggle)
 		GameState.set_player_menu_state(!menu_toggle)
