@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var inventory_sprite: Sprite2D = $Inventory
 @onready var background_darkening: ColorRect = $PlayerCamera/BackgroundDarkening
 @onready var ingame_menu: Control = $ingame_menu
+@onready var username_label: Label = $Username
+@onready var coin_count: Label = $Inventory/Coin/Coin_Count
 
 const SPEED = 70.0
 const SPRINT_MULTIPLIER = 1.5
@@ -12,12 +14,17 @@ var menu_toggle = true
 var can_move = true
 
 func _ready():
+	GameState.set_player_reference(self)
 	var new_position = GameState.set_player_position()
 	if new_position != Vector2.ZERO:
 		global_position = new_position
 		print("Player position set to:" , global_position)
 	else:
 		print("Using initial position set in the editor:", global_position)
+	# Set the username for the player
+	username_label.text = GameState.get_player_username()
+	coin_count.text = GameState.get_player_coins()
+	
 
 func _physics_process(delta):
 	var left = Input.is_action_pressed("left")

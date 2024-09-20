@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsrkfx4y51h8t"]
+[gd_scene load_steps=6 format=3 uid="uid://cmuxae27pd1ii"]
 
 [ext_resource type="Theme" uid="uid://cbbnfw4qu38ke" path="res://Themes/login_register_theme.tres" id="1_kllls"]
-[ext_resource type="Script" path="res://script/login.gd" id="1_us0yn"]
 [ext_resource type="FontFile" uid="uid://ypl6q6rxmhau" path="res://Fonts/PixelOperator8.ttf" id="2_3m2ts"]
+[ext_resource type="Script" path="res://script/login_menu.gd" id="2_ie4lb"]
 [ext_resource type="FontFile" uid="uid://cxfo73ujxg46t" path="res://Fonts/PixelOperator8-Bold.ttf" id="3_1a48s"]
 [ext_resource type="Script" path="res://script/http_requests/login_request.gd" id="5_qoq4a"]
 
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 theme = ExtResource("1_kllls")
-script = ExtResource("1_us0yn")
+script = ExtResource("2_ie4lb")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -51,14 +51,26 @@ placeholder_text = "Password"
 
 [node name="Login" type="Button" parent="."]
 layout_mode = 0
-offset_left = 880.0
+offset_left = 990.0
 offset_top = 530.0
-offset_right = 1040.0
+offset_right = 1150.0
 offset_bottom = 575.0
 pivot_offset = Vector2(80, 22.5)
+theme_override_fonts/font = ExtResource("2_3m2ts")
+theme_override_font_sizes/font_size = 16
 text = "Login"
 
-[node name="Label" type="Label" parent="."]
+[node name="BackToRegister" type="Button" parent="."]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 529.5
+offset_right = 930.0
+offset_bottom = 574.5
+theme_override_fonts/font = ExtResource("2_3m2ts")
+theme_override_font_sizes/font_size = 16
+text = "Back to Register"
+
+[node name="Login_Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 920.0
 offset_top = 375.0
@@ -69,8 +81,16 @@ theme_override_fonts/font = ExtResource("3_1a48s")
 theme_override_font_sizes/font_size = 16
 text = "Login"
 
+[node name="Error_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 586.5
+offset_right = 1150.0
+offset_bottom = 631.5
+
 [node name="login_request" type="HTTPRequest" parent="."]
 script = ExtResource("5_qoq4a")
 
 [connection signal="pressed" from="Login" to="login_request" method="_on_login_pressed"]
+[connection signal="pressed" from="BackToRegister" to="." method="_on_back_to_register_pressed"]
 [connection signal="request_completed" from="login_request" to="login_request" method="_on_request_completed"]

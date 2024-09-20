@@ -7,6 +7,8 @@ var should_set_position : bool = false
 var in_dialogue = false
 var in_inventory = false
 var in_menu = false
+var username : String
+var user_coins : String
 
 var entry_points = {
 	"H1Entry" : Vector2(105, 102.9974) ,
@@ -51,3 +53,47 @@ func set_player_menu_state(menu_bool : bool):
 
 func get_player_menu_state():
 	return in_menu
+	
+func set_player_username(username_string : String):
+	username = username_string
+
+func get_player_username():
+	return username
+	
+func set_player_coins(coin_count :  String):
+	user_coins = coin_count
+	
+func get_player_coins():
+	return user_coins
+	
+# Inventory Management
+
+var inventory = []
+
+var player_node : Node = null
+
+@onready var inventory_slot_scene = preload("res://scenes/inventory_slot.tscn")
+
+signal inventory_updated
+
+func _ready() -> void:
+	inventory.resize(15)
+	
+func add_item(item):
+	for i in range(inventory.size()):
+		if inventory[i] != null and inventory[i]["type"] == item["type"] and inventory[i]["effect"] == item["effect"]:
+			inventory[i]["quantity"] += item["quantity"]
+			inventory_updated.emit()
+			return true
+		elif inventory[i] == null:
+			inventory[i] = item
+			inventory_updated.emit()
+			return true
+		return false
+	
+	
+func remove_item():
+	inventory_updated.emit()
+
+func set_player_reference(player):
+	player_node = player

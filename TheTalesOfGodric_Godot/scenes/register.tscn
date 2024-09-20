@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqns6o1cy5led"]
+[gd_scene load_steps=6 format=3 uid="uid://dqns6o1cy5led"]
 
 [ext_resource type="Theme" uid="uid://cbbnfw4qu38ke" path="res://Themes/login_register_theme.tres" id="1_efcux"]
 [ext_resource type="FontFile" uid="uid://ypl6q6rxmhau" path="res://Fonts/PixelOperator8.ttf" id="1_yrlmq"]
+[ext_resource type="Script" path="res://script/register.gd" id="2_f1u1o"]
 [ext_resource type="FontFile" uid="uid://cxfo73ujxg46t" path="res://Fonts/PixelOperator8-Bold.ttf" id="2_tvndk"]
 [ext_resource type="Script" path="res://script/http_requests/register_request.gd" id="4_1kedp"]
 
@@ -18,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 theme = ExtResource("1_efcux")
+script = ExtResource("2_f1u1o")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -63,9 +65,9 @@ placeholder_text = "Password"
 
 [node name="Register" type="Button" parent="."]
 layout_mode = 0
-offset_left = 880.0
+offset_left = 770.0
 offset_top = 540.0
-offset_right = 1040.0
+offset_right = 930.0
 offset_bottom = 585.0
 pivot_offset = Vector2(80, 22.5)
 focus_mode = 0
@@ -73,7 +75,17 @@ theme_override_fonts/font = ExtResource("1_yrlmq")
 theme_override_font_sizes/font_size = 16
 text = "Register"
 
-[node name="Label" type="Label" parent="."]
+[node name="GoToLogin" type="Button" parent="."]
+layout_mode = 0
+offset_left = 990.0
+offset_top = 541.0
+offset_right = 1150.0
+offset_bottom = 586.0
+theme_override_fonts/font = ExtResource("1_yrlmq")
+theme_override_font_sizes/font_size = 16
+text = "Go To Login"
+
+[node name="Registration_Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 880.0
 offset_top = 300.0
@@ -87,5 +99,15 @@ text = "Registration"
 [node name="RegisterRequest" type="HTTPRequest" parent="."]
 script = ExtResource("4_1kedp")
 
+[node name="Error_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 598.0
+offset_right = 1150.0
+offset_bottom = 643.0
+theme_override_fonts/font = ExtResource("1_yrlmq")
+theme_override_font_sizes/font_size = 8
+
 [connection signal="pressed" from="Register" to="RegisterRequest" method="_on_register_pressed"]
+[connection signal="pressed" from="GoToLogin" to="." method="_on_go_to_login_pressed"]
 [connection signal="request_completed" from="RegisterRequest" to="RegisterRequest" method="_on_request_completed"]

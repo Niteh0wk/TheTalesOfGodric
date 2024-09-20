@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://327ychnib8t8"]
+[gd_scene load_steps=77 format=4 uid="uid://327ychnib8t8"]
 
 [ext_resource type="Texture2D" uid="uid://dbquamyg7b2nu" path="res://res/2DSprites/Tiles/Cliff_Tile.png" id="1_gb3se"]
 [ext_resource type="Texture2D" uid="uid://b0ptivlicnqo6" path="res://res/Cute_Fantasy/Outdoor decoration/Outdoor_Decor.png" id="2_1pfdp"]
@@ -38,7 +38,6 @@
 [ext_resource type="Texture2D" uid="uid://bt2oqrr037pjm" path="res://res/Cute_Fantasy/House/House1.png" id="35_d7w30"]
 [ext_resource type="PackedScene" uid="uid://cf5jhy2wnjcxh" path="res://scenes/door.tscn" id="36_1slpg"]
 [ext_resource type="Script" path="res://script/doorway.gd" id="37_peubo"]
-[ext_resource type="Script" path="res://script/http_request.gd" id="39_ckkp6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ev5b"]
 texture = ExtResource("1_gb3se")
@@ -968,17 +967,3 @@ shape = SubResource("RectangleShape2D_0xdr0")
 z_index = 5
 position = Vector2(-255, -1078)
 collision_layer = 3
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-script = ExtResource("39_ckkp6")
-
-[node name="Button" type="Button" parent="."]
-z_index = 100
-offset_left = -306.0
-offset_top = -1007.0
-offset_right = -298.0
-offset_bottom = -999.0
-text = "http"
-
-[connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_request_completed"]
-[connection signal="pressed" from="Button" to="HTTPRequest" method="_on_button_pressed"]

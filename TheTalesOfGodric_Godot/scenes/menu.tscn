@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cry205x0dcajs" path="res://res/UI/quit_button/quit_hover.png" id="12_efapv"]
 [ext_resource type="Texture2D" uid="uid://3vjrij0va40p" path="res://res/UI/quit_button/quit_normal.png" id="13_sng21"]
 [ext_resource type="Texture2D" uid="uid://gjc3nmexxb25" path="res://res/UI/quit_button/quit_pressed.png" id="14_7lmur"]
-[ext_resource type="Texture2D" uid="uid://c8miahr78cw4t" path="res://res/UI/LOGO.png" id="18_oauoe"]
+[ext_resource type="Texture2D" uid="uid://cb40s76bk2mxw" path="res://res/UI/The Tales of Godric_LOGO.png" id="18_2ke8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xfw00"]
 atlas = ExtResource("6_60n4m")
@@ -881,9 +881,9 @@ theme = SubResource("Theme_600sr")
 theme_override_fonts/font = ExtResource("4_vq0mw")
 theme_override_font_sizes/font_size = 128
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1944, 600)
-texture = ExtResource("18_oauoe")
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(1944, 496)
+texture = ExtResource("18_2ke8v")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
