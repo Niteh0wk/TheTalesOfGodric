@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3 uid="uid://0tjk42u7girr"]
+
+[ext_resource type="Texture2D" uid="uid://b4v0y75gnjcfj" path="res://res/UI/shop_menu/shop.png" id="1_577ru"]
+[ext_resource type="Script" path="res://script/shop.gd" id="1_cvmig"]
+[ext_resource type="Texture2D" uid="uid://cq44giay8qkxc" path="res://res/UI/buy_button/buy_hover.png" id="2_6nc75"]
+[ext_resource type="Texture2D" uid="uid://bwm1bmk07q4lu" path="res://res/UI/buy_button/buy_normal.png" id="3_8yxi2"]
+[ext_resource type="Texture2D" uid="uid://cetosbywjlqkq" path="res://res/Cute_Fantasy/Icons/No Outline/Food_Icons_NO_Outline.png" id="3_gvqlt"]
+[ext_resource type="Texture2D" uid="uid://c8a866k54alqh" path="res://res/UI/buy_button/buy_pressed.png" id="4_pi4nw"]
+[ext_resource type="FontFile" uid="uid://ypl6q6rxmhau" path="res://Fonts/PixelOperator8.ttf" id="4_yilqo"]
+[ext_resource type="Script" path="res://script/http_requests/shop_request.gd" id="8_3c4b7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srtrf"]
+texture = ExtResource("2_6nc75")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dhjoc"]
+texture = ExtResource("3_8yxi2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fyvs0"]
+texture = ExtResource("4_pi4nw")
+
+[sub_resource type="Theme" id="Theme_qqek4"]
+Button/styles/hover = SubResource("StyleBoxTexture_srtrf")
+Button/styles/normal = SubResource("StyleBoxTexture_dhjoc")
+Button/styles/pressed = SubResource("StyleBoxTexture_fyvs0")
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cvmig")
+
+[node name="Shop_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1, 1)
+texture = ExtResource("1_577ru")
+offset = Vector2(80.5, 45.5)
+
+[node name="Item_1" type="Sprite2D" parent="Shop_Sprite"]
+position = Vector2(27, 34)
+texture = ExtResource("3_gvqlt")
+region_enabled = true
+region_rect = Rect2(48, 16, 16, 16)
+
+[node name="Prize_Item_1" type="Label" parent="Shop_Sprite/Item_1"]
+offset_left = -11.0
+offset_top = 12.0
+offset_right = 10.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("4_yilqo")
+theme_override_font_sizes/font_size = 8
+text = "$16"
+
+[node name="Item_2" type="Sprite2D" parent="Shop_Sprite"]
+position = Vector2(81, 34)
+texture = ExtResource("3_gvqlt")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="Prize_Item_2" type="Label" parent="Shop_Sprite/Item_2"]
+offset_left = -8.0
+offset_top = 11.0
+offset_right = 8.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("4_yilqo")
+theme_override_font_sizes/font_size = 8
+text = "$8"
+
+[node name="Item_3" type="Sprite2D" parent="Shop_Sprite"]
+position = Vector2(134, 34)
+texture = ExtResource("3_gvqlt")
+region_enabled = true
+region_rect = Rect2(64, 32, 16, 16)
+
+[node name="Prize_Item_3" type="Label" parent="Shop_Sprite/Item_3"]
+offset_left = -10.0
+offset_top = 11.0
+offset_right = 11.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("4_yilqo")
+theme_override_font_sizes/font_size = 8
+text = "$32"
+
+[node name="Buy_Item_1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 66.0
+offset_right = 47.0
+offset_bottom = 83.0
+focus_mode = 0
+theme = SubResource("Theme_qqek4")
+
+[node name="Buy_Item_2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 66.0
+offset_right = 100.0
+offset_bottom = 83.0
+focus_mode = 0
+theme = SubResource("Theme_qqek4")
+
+[node name="Buy_Item_3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 66.0
+offset_right = 153.0
+offset_bottom = 83.0
+focus_mode = 0
+theme = SubResource("Theme_qqek4")
+
+[node name="Shop_Request" type="HTTPRequest" parent="."]
+script = ExtResource("8_3c4b7")
+
+[connection signal="pressed" from="Buy_Item_1" to="Shop_Request" method="_on_buy_item_1_pressed"]
+[connection signal="pressed" from="Buy_Item_2" to="Shop_Request" method="_on_buy_item_2_pressed"]
+[connection signal="pressed" from="Buy_Item_3" to="Shop_Request" method="_on_buy_item_3_pressed"]

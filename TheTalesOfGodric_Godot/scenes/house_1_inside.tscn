@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://c157lhytmad6a"]
+[gd_scene load_steps=53 format=4 uid="uid://c157lhytmad6a"]
 
 [ext_resource type="Texture2D" uid="uid://bqitbenvet3t6" path="res://res/Cute_Fantasy/House/Walls/Stone_Floor_1.png" id="1_kyya8"]
 [ext_resource type="Texture2D" uid="uid://bgjqhow6q5moq" path="res://res/Cute_Fantasy/House/Walls/Stone_Floor_2.png" id="2_ee7jj"]
@@ -13,8 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://b860xhra8me57" path="res://res/Cute_Fantasy/Outdoor decoration/Torch_Anim.png" id="9_6fo8l"]
 [ext_resource type="Texture2D" uid="uid://bustfbxcq4jxf" path="res://res/Cute_Fantasy/Player/NPC_Sprite.png" id="12_mej2c"]
 [ext_resource type="Script" path="res://script/npc_scripts/npc_house_1.gd" id="13_gi60h"]
+[ext_resource type="Texture2D" uid="uid://crlebbu3li2rh" path="res://res/UI/x_button/x_hover.png" id="13_t1ui8"]
 [ext_resource type="PackedScene" uid="uid://dfedwbujuxsfs" path="res://scenes/dialogue.tscn" id="14_tcj67"]
+[ext_resource type="Texture2D" uid="uid://chk7k6sdsdmvc" path="res://res/UI/x_button/x_normal.png" id="14_xbf45"]
+[ext_resource type="Texture2D" uid="uid://nvp0scm2b5xt" path="res://res/UI/x_button/x_pressed.png" id="15_iqsw1"]
 [ext_resource type="Texture2D" uid="uid://ddrc0ks3n2vcf" path="res://res/UI/Press_E_Anim.png" id="15_xisbe"]
+[ext_resource type="PackedScene" uid="uid://0tjk42u7girr" path="res://scenes/shop.tscn" id="16_gddoh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0w767"]
 texture = ExtResource("1_kyya8")
@@ -308,6 +312,20 @@ sources/0 = SubResource("TileSetAtlasSource_fwir7")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nckpr"]
 size = Vector2(16, 16.25)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1dd6p"]
+texture = ExtResource("13_t1ui8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xoth0"]
+texture = ExtResource("14_xbf45")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xr1ow"]
+texture = ExtResource("15_iqsw1")
+
+[sub_resource type="Theme" id="Theme_4hujy"]
+Button/styles/hover = SubResource("StyleBoxTexture_1dd6p")
+Button/styles/normal = SubResource("StyleBoxTexture_xoth0")
+Button/styles/pressed = SubResource("StyleBoxTexture_xr1ow")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0617u"]
 size = Vector2(16, 16)
 
@@ -457,6 +475,23 @@ position = Vector2(104, 76)
 collision_layer = 3
 collision_mask = 2
 
+[node name="Shop" parent="Node/HouseStuff/Player" instance=ExtResource("16_gddoh")]
+z_index = 100
+offset_left = -81.0
+offset_top = -78.0
+offset_right = -81.0
+offset_bottom = -78.0
+
+[node name="X2" type="Button" parent="Node/HouseStuff/Player/Shop"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 7.0
+offset_right = 178.0
+offset_bottom = 39.0
+scale = Vector2(0.25, 0.25)
+focus_mode = 0
+theme = SubResource("Theme_4hujy")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/HouseStuff"]
 position = Vector2(104, 120)
 collision_layer = 3
@@ -496,4 +531,5 @@ offset_bottom = -132.072
 file_path = "res://dialogue/npc_house_1_dialogue.json"
 
 [connection signal="body_entered" from="Node/HouseStuff/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="Node/HouseStuff/Player/Shop/X2" to="Node/HouseStuff/Player/Shop" method="_on_x_2_pressed"]
 [connection signal="body_entered" from="Node/HouseStuff/NPC/InteractionArea" to="Node/HouseStuff/NPC" method="_on_interaction_area_body_entered"]

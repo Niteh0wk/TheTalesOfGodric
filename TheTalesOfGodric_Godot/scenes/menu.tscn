@@ -829,7 +829,7 @@ autoplay = "default"
 frame_progress = 0.490434
 
 [node name="Cow" type="AnimatedSprite2D" parent="."]
-position = Vector2(2286.01, 541.693)
+position = Vector2(1172, 1726)
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_kihda")
 autoplay = "default"

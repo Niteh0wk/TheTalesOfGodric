@@ -22,8 +22,8 @@ public class UserService {
     }
 
     @Transactional // Ensures atomicity of operations
-    public void updateBalance(String userID, int newBalance) throws Exception {
-        User user = userRepository.findById(String.valueOf(userID)).orElseThrow(() -> new Exception("Player not found"));
+    public void updateBalance(String email, int newBalance) throws Exception {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new Exception("Player not found"));
 
         user.setInGameBalance(newBalance);
 

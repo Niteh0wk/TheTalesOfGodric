@@ -14,7 +14,6 @@ var menu_toggle = true
 var can_move = true
 
 func _ready():
-	GameState.set_player_reference(self)
 	var new_position = GameState.set_player_position()
 	if new_position != Vector2.ZERO:
 		global_position = new_position
@@ -35,7 +34,7 @@ func _physics_process(delta):
 	var escape = Input.is_action_just_pressed("escape")
 	var inventory = Input.is_action_just_pressed("inventory")
 	
-	if inventory and ingame_menu.visible == false:
+	if inventory and ingame_menu.visible == false and GameState.get_player_shop_state() == false:
 		inventory_sprite.visible = inventory_toggle
 		background_darkening.visible = inventory_toggle
 		username_label.visible = !inventory_toggle
@@ -44,7 +43,7 @@ func _physics_process(delta):
 		GameState.set_player_inventory_state(!inventory_toggle)
 		
 		
-	if escape and inventory_sprite.visible == false:
+	if escape and inventory_sprite.visible == false and GameState.get_player_shop_state() == false:
 		ingame_menu.visible = menu_toggle
 		background_darkening.visible = menu_toggle
 		username_label.visible = !menu_toggle
@@ -57,6 +56,8 @@ func _physics_process(delta):
 	elif GameState.get_player_inventory_state() == true:
 		can_move = false
 	elif GameState.get_player_menu_state() == true:
+		can_move = false
+	elif GameState.get_player_shop_state() == true:
 		can_move = false
 	else:
 		can_move = true

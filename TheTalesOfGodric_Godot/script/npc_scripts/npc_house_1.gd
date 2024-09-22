@@ -4,8 +4,7 @@ var player_in_area = false
 
 @onready var dialogue: Control = $"../../Dialogue"
 @onready var press_e: AnimatedSprite2D = $"../Press_E2"
-
-
+@onready var shop: Control = $"../../Player/Shop"
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
@@ -33,3 +32,8 @@ func _process(delta: float) -> void:
 		dialogue.visible = true
 	else: 
 		dialogue.visible = false
+		
+	if GameState.get_player_shop_state() == true:
+		shop.visible = true
+	else:
+		shop.visible = false

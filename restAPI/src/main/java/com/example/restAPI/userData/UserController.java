@@ -31,13 +31,13 @@ public class UserController {
         }
     }
 
-    @PutMapping("/{userID}/updateBalance")
-    public ResponseEntity<String> updateBalance(@PathVariable("userID") String userID, @RequestBody UpdateRequest request) {
+    @PutMapping("/{email}/updateBalance")
+    public ResponseEntity<String> updateBalance(@PathVariable("email") String email, @RequestBody UpdateRequest request) {
         try {
-            userService.updateBalance(userID, request.getNewBalance());
+            userService.updateBalance(email, request.getNewBalance());
             return ResponseEntity.ok("User data updated successfully");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update user data: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("message" + "Failed to update user data: " + "error" + e.getMessage());
         }
     }
 

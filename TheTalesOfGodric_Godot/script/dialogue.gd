@@ -26,6 +26,7 @@ func next_script():
 	current_dialogue_id += 1
 	if current_dialogue_id >= len(dialogue):
 		GameState.set_player_dialogue_state(false)
+		GameState.set_player_shop_state(true)
 		return
 	
 	$Dialogue_Field/Name.text = dialogue[current_dialogue_id]['name']
