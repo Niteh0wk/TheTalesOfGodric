@@ -84,7 +84,7 @@ theme_override_font_sizes/font_size = 8
 text = "$32"
 
 [node name="Current_Coins" type="Sprite2D" parent="Shop_Sprite"]
-position = Vector2(81, -10)
+position = Vector2(80.5, -12)
 texture = ExtResource("5_vijh0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop_Sprite/Current_Coins"]
