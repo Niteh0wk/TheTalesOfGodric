@@ -20,6 +20,12 @@ public class User {
     private String password;
     @Setter
     private int inGameBalance;
+    @Setter
+    private int item_1_count;
+    @Setter
+    private int item_2_count;
+    @Setter
+    private int item_3_count;
 
 }
 

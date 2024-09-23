@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://b0uco3nojwgw7"]
+[gd_scene load_steps=93 format=3 uid="uid://b0uco3nojwgw7"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_3yxj8"]
 [ext_resource type="Texture2D" uid="uid://b02t2lbuwkwhw" path="res://res/Cute_Fantasy/Player/Player.png" id="3_6pxn2"]
@@ -9,9 +9,74 @@
 [ext_resource type="Texture2D" uid="uid://00k7mgpi2h8c" path="res://res/UI/Inventory/Coin_Display_V2.png" id="6_iej6d"]
 [ext_resource type="Texture2D" uid="uid://b1uh4pybb0qvs" path="res://res/UI/Inventory/Coin.png" id="7_3i2yo"]
 [ext_resource type="FontFile" uid="uid://ypl6q6rxmhau" path="res://Fonts/PixelOperator8.ttf" id="8_apm5l"]
+[ext_resource type="Texture2D" uid="uid://cetosbywjlqkq" path="res://res/Cute_Fantasy/Icons/No Outline/Food_Icons_NO_Outline.png" id="9_tpwk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0qab"]
 size = Vector2(13, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mbrt"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f10if"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xbsr"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeiw2"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fei7"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa0gb"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv64k"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xktxm"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(96, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pumm"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(0, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2nm2"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(32, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unt1v"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(64, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28umc"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(96, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewimj"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(0, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bcml"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(32, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgk2b"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(64, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogwnd"]
+atlas = ExtResource("3_6pxn2")
+region = Rect2(96, 416, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhm34"]
 atlas = ExtResource("3_6pxn2")
@@ -233,6 +298,74 @@ region = Rect2(160, 160, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3mbrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f10if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xbsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeiw2")
+}],
+"loop": false,
+"name": &"attack_down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fei7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa0gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv64k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xktxm")
+}],
+"loop": false,
+"name": &"attack_left",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pumm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2nm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unt1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28umc")
+}],
+"loop": false,
+"name": &"attack_right",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewimj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bcml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgk2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogwnd")
+}],
+"loop": false,
+"name": &"attack_up",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qhm34")
 }, {
 "duration": 1.0,
@@ -439,6 +572,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgqw8"]
+size = Vector2(4, 12)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8qit"]
 atlas = ExtResource("3_6pxn2")
 region = Rect2(0, 32, 32, 32)
@@ -489,6 +625,12 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sj4e4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxwmp"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 513
 collision_mask = 513
@@ -500,9 +642,16 @@ shape = SubResource("RectangleShape2D_o0qab")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uvuug")
-animation = &"walk_up"
+animation = &"attack_right"
 autoplay = "idle_front"
-frame_progress = 0.924944
+frame = 1
+frame_progress = 0.537294
+
+[node name="Sword_Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword_Hitbox"]
+position = Vector2(11, 3)
+shape = SubResource("RectangleShape2D_lgqw8")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -539,6 +688,16 @@ sprite_frames = SubResource("SpriteFrames_k3sat")
 autoplay = "default"
 frame_progress = 0.955346
 
+[node name="HealthBar" type="ProgressBar" parent="Inventory/Inventory_Side"]
+offset_left = -3.0
+offset_top = -19.0
+offset_right = 12.0
+offset_bottom = -15.0
+theme_override_styles/background = SubResource("StyleBoxFlat_sj4e4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hxwmp")
+value = 100.0
+show_percentage = false
+
 [node name="Coin_Display" type="Sprite2D" parent="Inventory"]
 position = Vector2(-110.48, -44.4535)
 scale = Vector2(1.14402, 1.14402)
@@ -558,6 +717,64 @@ scale = Vector2(1.5, 1.5)
 theme_override_fonts/font = ExtResource("8_apm5l")
 theme_override_font_sizes/font_size = 8
 text = "0"
+
+[node name="Inventory_Grid" type="GridContainer" parent="Inventory"]
+offset_left = -56.0
+offset_top = -32.0
+offset_right = 56.0
+offset_bottom = 32.0
+columns = 5
+
+[node name="Item_1" type="Sprite2D" parent="Inventory/Inventory_Grid"]
+visible = false
+position = Vector2(8, 8)
+texture = ExtResource("9_tpwk6")
+region_enabled = true
+region_rect = Rect2(48, 16, 16, 16)
+
+[node name="Count_1" type="Label" parent="Inventory/Inventory_Grid/Item_1"]
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 1.0
+offset_bottom = 1.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("8_apm5l")
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="Item_2" type="Sprite2D" parent="Inventory/Inventory_Grid"]
+visible = false
+position = Vector2(32, 8)
+texture = ExtResource("9_tpwk6")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="Count_2" type="Label" parent="Inventory/Inventory_Grid/Item_2"]
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 1.0
+offset_bottom = 1.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("8_apm5l")
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="Item_3" type="Sprite2D" parent="Inventory/Inventory_Grid"]
+visible = false
+position = Vector2(56, 8)
+texture = ExtResource("9_tpwk6")
+region_enabled = true
+region_rect = Rect2(64, 32, 16, 16)
+
+[node name="Count_3" type="Label" parent="Inventory/Inventory_Grid/Item_3"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 11.0
+offset_bottom = 11.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("8_apm5l")
+theme_override_font_sizes/font_size = 8
+text = "1"
 
 [node name="ingame_menu" parent="." instance=ExtResource("6_3m6f8")]
 visible = false
@@ -580,3 +797,7 @@ theme_override_fonts/font = ExtResource("8_apm5l")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="body_entered" from="Sword_Hitbox" to="." method="_on_sword_hitbox_body_entered"]
+[connection signal="body_exited" from="Sword_Hitbox" to="." method="_on_sword_hitbox_body_exited"]

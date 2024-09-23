@@ -25,7 +25,10 @@ func _on_register_pressed() -> void:
 			"user_name" : username,
 			"email" : email,
 			"password" : password,
-			"inGameBalance" : 0
+			"inGameBalance" : 0,
+			"item_1_count" : 0,
+			"item_2_count" : 0,
+			"item_3_count" : 0
 		}
 		
 		# Convert the dictionary to JSON format

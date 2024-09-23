@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -32,12 +33,22 @@ public class UserController {
     }
 
     @PutMapping("/{email}/updateBalance")
-    public ResponseEntity<String> updateBalance(@PathVariable("email") String email, @RequestBody UpdateRequest request) {
+    public ResponseEntity<String> updateBalance(@PathVariable("email") String email, @RequestBody UpdateBalanceRequest request) {
         try {
             userService.updateBalance(email, request.getNewBalance());
             return ResponseEntity.ok("User data updated successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("message" + "Failed to update user data: " + "error" + e.getMessage());
+        }
+    }
+
+    @PutMapping("/{email}/updateItemCount")
+    public ResponseEntity<String> updateItemCount(@PathVariable("email") String email, @RequestBody UpdateItemCountRequest request) {
+        try {
+            userService.updateItemCount(email, request.getNewItemCount(), request.getItem());
+            return ResponseEntity.ok("Item count updated successfully!");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update item count: " + e.getMessage());
         }
     }
 

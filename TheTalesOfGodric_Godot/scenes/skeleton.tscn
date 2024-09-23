@@ -1,9 +1,34 @@
-[gd_scene load_steps=34 format=3 uid="uid://bnyys63bi6ani"]
+[gd_scene load_steps=43 format=3 uid="uid://bnyys63bi6ani"]
 
+[ext_resource type="Script" path="res://script/skeleton.gd" id="1_lwf42"]
 [ext_resource type="Texture2D" uid="uid://bsrsgrigssb6a" path="res://res/Cute_Fantasy/Enemies/Skeleton/Skeleton_Swordman.png" id="1_vlg4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_438wv"]
 size = Vector2(18, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3c07"]
+atlas = ExtResource("1_vlg4d")
+region = Rect2(64, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35ejh"]
+atlas = ExtResource("1_vlg4d")
+region = Rect2(96, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmmvx"]
+atlas = ExtResource("1_vlg4d")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky3j0"]
+atlas = ExtResource("1_vlg4d")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eirm3"]
+atlas = ExtResource("1_vlg4d")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4cpk"]
+atlas = ExtResource("1_vlg4d")
+region = Rect2(96, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_34ffe"]
 atlas = ExtResource("1_vlg4d")
@@ -129,6 +154,34 @@ region = Rect2(160, 160, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_w3c07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35ejh")
+}],
+"loop": false,
+"name": &"damage_taken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmmvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky3j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eirm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4cpk")
+}],
+"loop": false,
+"name": &"death",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_34ffe")
 }, {
 "duration": 1.0,
@@ -243,7 +296,14 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aeelc"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pabfk"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="Skeleton" type="CharacterBody2D"]
+script = ExtResource("1_lwf42")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(2, -17.5)
@@ -252,6 +312,17 @@ shape = SubResource("RectangleShape2D_438wv")
 [node name="SkeletonSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_lrok8")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
-frame_progress = 0.782361
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -11.0
+offset_top = -34.0
+offset_right = 15.0
+offset_bottom = -30.0
+theme_override_styles/background = SubResource("StyleBoxFlat_aeelc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pabfk")
+value = 100.0
+show_percentage = false
+
+[connection signal="animation_finished" from="SkeletonSprite" to="." method="_on_skeleton_sprite_animation_finished"]

@@ -3,7 +3,7 @@ package com.example.restAPI.userData;
 import lombok.Getter;
 
 @Getter
-public class UpdateRequest {
+public class UpdateBalanceRequest {
 
     private int newBalance;
 }

@@ -28,7 +28,16 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 				# Sets the username in the global script so that we can access it in the player script
 				GameState.set_player_username(user_data["user_name"])
 				# Set the players coin count
-				GameState.set_player_coins(str(user_data["inGameBalance"]))
+				GameState.set_player_coins(user_data["inGameBalance"])
+				# Set the players email
+				GameState.set_player_email(user_data["email"])
+				# Set the player item counts
+				GameState.set_player_item_count(1,int(user_data["item_1_count"]))
+				print(int(user_data["item_1_count"]))
+				GameState.set_player_item_count(2,int(user_data["item_2_count"]))
+				print(int(user_data["item_2_count"]))
+				GameState.set_player_item_count(3,int(user_data["item_3_count"]))
+				print(int(user_data["item_3_count"]))
 				
 				get_tree().change_scene_to_file("res://scenes/menu.tscn")
 			else:

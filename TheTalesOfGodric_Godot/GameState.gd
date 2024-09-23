@@ -9,7 +9,11 @@ var in_inventory = false
 var in_menu = false
 var in_shop = false
 var username : String
-var user_coins : String
+var user_email : String
+var user_coins : int
+var item_1_count : int
+var item_2_count : int
+var item_3_count : int
 
 var entry_points = {
 	"H1Entry" : Vector2(105, 102.9974) ,
@@ -62,14 +66,42 @@ func set_player_shop_state(shop_bool : bool):
 func get_player_shop_state():
 	return in_shop
 	
+
+# Set some variables
 func set_player_username(username_string : String):
 	username = username_string
 
 func get_player_username():
 	return username
 	
-func set_player_coins(coin_count :  String):
+func set_player_coins(coin_count :  int):
 	user_coins = coin_count
 	
 func get_player_coins():
 	return user_coins
+	
+func set_player_email(email_string : String):
+	user_email = email_string
+	
+func get_player_email():
+	return user_email
+	
+func set_player_item_count(item : int, count : int):
+	if item == 1:
+		item_1_count = count
+	elif item == 2:
+		item_2_count = count
+	elif item == 3:
+		item_3_count = count
+	else:
+		print("Item does not exist")
+	
+func get_player_item_count(item : int):
+	if item == 1:
+		return item_1_count
+	elif item == 2:
+		return item_2_count
+	elif item == 3:
+		return item_3_count
+	else:
+		print("Item does not exist")
