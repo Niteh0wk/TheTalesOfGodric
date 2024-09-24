@@ -13,7 +13,8 @@ extends CharacterBody2D
 @onready var item_1: Sprite2D = $Inventory/Inventory_Grid/Item_1
 @onready var item_2: Sprite2D = $Inventory/Inventory_Grid/Item_2
 @onready var item_3: Sprite2D = $Inventory/Inventory_Grid/Item_3
-
+@onready var health_bar_progress: ProgressBar = $PlayerCamera/Health_Bar_Progress
+@onready var health_bar: Sprite2D = $PlayerCamera/Health_Bar
 
 const SPEED = 70.0
 const SPRINT_MULTIPLIER = 1.5
@@ -51,6 +52,8 @@ func _physics_process(delta):
 		inventory_sprite.visible = inventory_toggle
 		set_background_darkening(inventory_toggle)
 		username_label.visible = !inventory_toggle
+		health_bar.visible = !inventory_toggle
+		health_bar_progress.visible = !inventory_toggle
 		inventory_toggle = !inventory_toggle
 		print("The inventory_toggle is:" , inventory_toggle)
 		GameState.set_player_inventory_state(!inventory_toggle)
@@ -60,6 +63,8 @@ func _physics_process(delta):
 		ingame_menu.visible = menu_toggle
 		set_background_darkening(menu_toggle)
 		username_label.visible = !menu_toggle
+		health_bar.visible = !menu_toggle
+		health_bar_progress.visible = !menu_toggle
 		menu_toggle = !menu_toggle
 		print("The menu_toggle is:", menu_toggle)
 		GameState.set_player_menu_state(!menu_toggle)

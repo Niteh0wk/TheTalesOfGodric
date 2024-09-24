@@ -1,9 +1,10 @@
-[gd_scene load_steps=93 format=3 uid="uid://b0uco3nojwgw7"]
+[gd_scene load_steps=96 format=3 uid="uid://b0uco3nojwgw7"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_3yxj8"]
 [ext_resource type="Texture2D" uid="uid://b02t2lbuwkwhw" path="res://res/Cute_Fantasy/Player/Player.png" id="3_6pxn2"]
 [ext_resource type="Texture2D" uid="uid://dgrkmf0203jft" path="res://res/UI/Inventory/Inventory.png" id="3_rp4ui"]
 [ext_resource type="Script" path="res://script/player_camera.gd" id="3_ve7qr"]
+[ext_resource type="Texture2D" uid="uid://chbsk323mds7d" path="res://res/UI/player/player_healthbar.png" id="4_f5p1x"]
 [ext_resource type="Texture2D" uid="uid://bg4lwjyknxiqk" path="res://res/UI/Inventory/Inventory_Side.png" id="4_va3fl"]
 [ext_resource type="PackedScene" uid="uid://3v0sis016jpl" path="res://scenes/ingame_menu.tscn" id="6_3m6f8"]
 [ext_resource type="Texture2D" uid="uid://00k7mgpi2h8c" path="res://res/UI/Inventory/Coin_Display_V2.png" id="6_iej6d"]
@@ -575,6 +576,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgqw8"]
 size = Vector2(4, 12)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i1jg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_copg2"]
+bg_color = Color(1, 0, 0, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8qit"]
 atlas = ExtResource("3_6pxn2")
 region = Rect2(0, 32, 32, 32)
@@ -655,7 +662,6 @@ shape = SubResource("RectangleShape2D_lgqw8")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 script = ExtResource("3_ve7qr")
 
@@ -667,6 +673,23 @@ offset_top = -389.0
 offset_right = 738.0
 offset_bottom = 423.0
 color = Color(0, 0, 0, 0.741176)
+
+[node name="Health_Bar_Progress" type="ProgressBar" parent="PlayerCamera"]
+z_index = 100
+offset_left = -188.0
+offset_top = 104.0
+offset_right = -128.0
+offset_bottom = 114.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0i1jg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_copg2")
+value = 100.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Health_Bar" type="Sprite2D" parent="PlayerCamera"]
+z_index = 100
+position = Vector2(-166, 109)
+texture = ExtResource("4_f5p1x")
 
 [node name="Inventory" type="Sprite2D" parent="."]
 visible = false
