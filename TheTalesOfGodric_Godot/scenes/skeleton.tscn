@@ -161,7 +161,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"damage_taken",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -312,8 +312,10 @@ shape = SubResource("RectangleShape2D_438wv")
 [node name="SkeletonSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_lrok8")
-animation = &"death"
+animation = &"damage_taken"
 autoplay = "idle"
+frame = 1
+frame_progress = 1.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -11.0
