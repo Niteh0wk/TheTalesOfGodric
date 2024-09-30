@@ -13,12 +13,15 @@ config_version=5
 config/name="TalesOfGodric"
 run/main_scene="res://scenes/register.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://res/LoadingScreen.png"
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameState="*res://GameState.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Music="*res://scenes/music.gd"
+MusicScene="*res://scenes/music.tscn"
 
 [display]
 
