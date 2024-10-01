@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/TheTalesOfGodric.mp3-3bff6a787b71556d550600d0
 [params]
 
 loop=true
-loop_offset=96.0
+loop_offset=96.04
 bpm=140.0
 beat_count=0
-bar_beats=4
+bar_beats=8

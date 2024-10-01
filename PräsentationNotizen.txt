@@ -1,0 +1,7 @@
+Why i used MongoDB:
+	Easy to use
+	Widely Recommended
+	Since it‘s a NoSQL database it doesn‘t require a fixed schema which is good since with Game Developing you have a lot of different data structures 	(player stats, game levels, inventories, etc.)
+	Games often experience rapid growth in users or data (player data, in-game assets, etc.). MongoDB is designed to scale horizontally by distributing 	data across multiple servers, ensuring it can handle high traffic and large datasets efficiently, which for me was just a no-brainer for future 	proofing
+	Many games require fast, real-time data reads and writes, like leaderboards, matchmaking, or player interactions. MongoDB‘s architecture supports 	low-latency queries and fast data access, which is critical for a smooth gaming experience
+	Game data often includes complex relationships (players with multiple inventories, achievements, etc.). MongoDB’s document-based storage allows 	these nested structures to be stored in a single record, reducing complexity and improving read performance.
